@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+}
+
+.levels-and-counter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: 10rem 10rem;
+  width: 15rem;
+  height: 20rem;
+}
+.card img {
+  width: 100%;
+}
+h2 {
+  text-align: center;
+}
