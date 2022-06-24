@@ -12,10 +12,10 @@
   display: flex;
   justify-content: space-between;
   margin: 0 100px;
-  
 }
 
-.levels, .counter {
+.levels,
+.counter {
   background-color: antiquewhite;
   width: 100px;
   height: 20px;
@@ -37,7 +37,7 @@
 
 .card:hover {
   transform: translateY(-1.2rem);
-  box-shadow: 0 10px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 .card img {
@@ -48,7 +48,10 @@
 .card-cover {
   position: absolute;
   left: 0;
-/* opacity: 0; */ */
+  height: 100%;
+  cursor: pointer;
+  border-style: ridge;
+  /* opacity: 0; */
 }
 
 h2 {
@@ -57,4 +60,38 @@ h2 {
 
 body {
   background-color: lavender;
+}
+
+.buttons {
+  justify-content: center;
+  display: flex;
+  margin-top: 50px;
+}
+
+.reset {
+  margin-right: 50px;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.next-level {
+  margin-left: 50px;
+  width: 110px;
+  height: 40px;
+}
+
+.reset,
+.next-level {
+  border: none;
+  background-color: black;
+  color: lavender;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.hide {
+  display: none;
 }
