@@ -11,53 +11,68 @@ const nextLevel = document.querySelector(".next-level");
 
 const cards = document.querySelectorAll(".card");
 
-const prompts = ["The Lovers", "The World", "The Empress"];
+let cardNames = ["Empress", "Lovers", "World"];
+
+let randomCards = 0;
+
+let correctCard = 0;
+
+const images = document.querySelectorAll(".card-img");
+
+//Functions declared
+
+const shuffleCards = function () {
+  cardNames = cardNames.sort(() => Math.random() - 0.5);
+
+  images.forEach((image, i) => {
+    image.src = `images/the-${cardNames[i]}.jpg`;
+  });
+};
 
 const resetCards = function () {
-  for (let i = 0; i < cover.length; i++) {
-    let currentCard = cover.item(i);
-    currentCard.classList.remove("hide");
-  }
+  // for (let i = 0; i < cover.length; i++) {
+  //   let currentCard = cover.item(i);
+  //   currentCard.classList.remove("hide");
+  //}
+  cover.forEach((c) => c.classList.remove("hide"));
+  shuffleCards();
+  randomCards = Math.floor(Math.random() * 3);
+  prompt1.textContent = `Find The ${cardNames[randomCards]}`;
+  correctCard = cover.item(randomCards);
 };
 
-function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-
-const shuffleCards = function (card) {
-  shuffle(card);
-
-  for (let i = 0; i < card.length; i++) {
-    cards[i].innerHTML = card[i].innerHTML;
-  }
+const blockCards = function () {
+  cover.forEach((c) => (c.disabled = true));
 };
 
-const card = Array.from(cards);
-shuffleCards(card);
+// for (let i = 0; i < cover.length; i++) {
+//   let currentCard = cover.item(i);
 
-for (let i = 0; i < cover.length; i++) {
-  let currentCard = cover.item(i);
+//   currentCard.addEventListener("click", function () {
+//     currentCard.classList.toggle("hide");
+//   });
+// }
+resetCards();
 
-  currentCard.addEventListener("click", function () {
-    currentCard.classList.toggle("hide");
-  });
-}
+cover.forEach((c) =>
+  c.addEventListener("click", function () {
+    c.classList.toggle("hide");
+
+    nextLevel.disabled = true;
+
+    if (c === correctCard) {
+      prompt1.textContent = "You're a real psychic! Proceed to the Next Level!";
+
+      nextLevel.disabled = false;
+    } else {
+      prompt1.textContent = "What a disappointment! Try again human";
+    }
+
+    if (levels.textContent === 7) {
+      blockCards();
+    }
+  })
+);
 
 reset.addEventListener("click", function () {
   levels.textContent = 1;
