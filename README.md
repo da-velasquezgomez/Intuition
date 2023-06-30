@@ -40,36 +40,36 @@ We welcome and appreciate any contributions. To contribute to the project:
 
 ## Changelog
 
-2022-06-24
-Added
+### 2022-06-24
+#### Added
 New feature: 
 - Styling for levels
 - Card deletion function
 - Proper labeling for files and images
 - Shuffle, block, and reset functions
-Fixed
+#### Fixed
 - Properly shuffling cards
 - Working reset button
 
 
-2022-06-23
-Added
+### 2022-06-23
+#### Added
 New feature: 
 - Button and card functions
 - Reset button (next level feature)
-Fixed
+#### Fixed
 - Button functionality
 
 
-2022-06-22
-Added
+### 2022-06-22
+#### Added
 New feature: 
 - Created project skeleton
 - Added levels feature and counter
 - Basic CSS skeleton
 - Added images
 - Added border styling
-Fixed
+#### Fixed
 - Counter and levels feature integration
 
 
